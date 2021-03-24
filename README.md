@@ -20,5 +20,5 @@ email id validation
 *non working  code 
 -
 entered data is not printed below
-only UI,html,javaScript functionig properly
+only UI view,html view,javaScript validation functionig properly
 
