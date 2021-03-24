@@ -1,0 +1,150 @@
+<html>   
+   <head>
+      <title>Form Validation</title>      
+      <style>
+         body {
+           background-color: lightblue;
+         }
+
+         #submit {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+         </style>
+                
+       
+      
+    
+
+           
+            <script type = "text/javascript">
+            //form validation
+      function validate() {
+
+        if( document.vform.name.value == ""&& document.vform.eMail.value == "" && document.vform.number.value == ""){
+            alert("There are multiple Fileds that are Empty");
+            return false;
+        }
+      
+         if( document.vform.name.value == "" ) {
+            alert( "Name field empty! Please fill" );
+            document.vform.name.focus() ;
+            return false;
+         }
+         if( document.vform.eMail.value == "" ) {
+            alert( "Email field Empty! Please fill" );
+            document.vform.eMail.focus() ;
+            return false;
+         }
+         
+         if( document.vform.number.value == "" ) {
+            alert( "Number Field is Empty! Please fill" );
+            document.vform.number.focus() ;
+            return false;
+         }
+      
+
+
+        
+   
+
+
+      function vmail() {
+         var emailid = document.vform.eMail.value;
+         apos = emailid.indexOf("@");
+         dtpos = emailid.lastIndexOf(".");
+         
+         if (apos < 1 || ( dtpos - apos < 2 )) {
+            alert("Please enter correct email ID")
+            document.vform.eMail.focus() ;
+            return false;
+         }
+         return( true );
+  
+      }
+      
+      function nm(){
+          var jk = document.vform.name.value;
+          if(jk.value.length<3){
+              alert("Name should be more than 3characters long")
+              document.vform.name.focus() ;
+              return false;
+          }
+          return( true );
+      }
+      //phone number validation
+
+     function vp() {
+         var num = document.vform.number.value;
+        
+         
+         if(num.value.length!=10) {
+            alert("Only 10 digit number Valid ")
+            document.vform.number.focus() ;
+            return false;
+         }
+         return( true );
+      }
+
+   </head>
+      </script>
+      
+
+   
+         
+     
+   
+   <body>
+      <form action = "#" name = "vform" onsubmit = "return(validate());">
+       
+         <table align="center" cellspacing = "2" cellpadding = "2"  >
+            
+            <tr>
+               <td align = "right">Name</td>
+               <td><input type = "text" name = "name" onchange="nm()"></td>
+            </tr>
+
+            <tr>
+                <td align = "right">PhoneNumber</td>
+                <td><input type = "text" name = "number" onchange="vp()"></td>
+             </tr>
+
+
+            <tr>
+                <td align = "right">Email</td>
+                <td><input type = "text" name = "eMail" onchange="vmail()"></td>
+             </tr>
+             
+            
+          
+            
+            <tr>
+               <td align = "right"></td>
+               <td><input type = "submit" value = "Submit" id="submit"/></td>
+            </tr>
+            
+         </table>
+
+         <div class="container">
+            <center> <h1 style="color:red">Entered Details</h1>
+                <p class="sheet"></p></center>
+                <div class="table-responsive-sm">    
+            <table class="table table-bordered" id="dt" align="center" >
+                <tr>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>PhoneNumber.</th>
+                </tr>
+            </table>
+            </div>
+      </form>      
+   </body>
+</html>
